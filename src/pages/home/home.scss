@@ -1,0 +1,10 @@
+page-home {
+
+}
+
+ion-list:first-child {
+  margin-top: 10px;
+}
+ion-list + ion-list {
+  margin-top: 0;
+}

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Checkin
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="checkinForm.name" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="checkinForm.firstName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Second Name</ion-label>
+      <ion-input type="text" [(ngModel)]="checkinForm.secondName"></ion-input>
+    </ion-item>
+
+      <ion-item>
+        <ion-label>Room</ion-label>
+        <ion-select [(ngModel)]="checkinForm.room" [selectOptions]="roomsAlertOptions">
+          <ion-option *ngFor="let room of hotelRooms">{{ room.nombre }}</ion-option>
+        </ion-select>
+      </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Adults</ion-label>
+      <ion-input type="tel" [(ngModel)]="checkinForm.adults"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Kids</ion-label>
+      <ion-input type="tel" [(ngModel)]="checkinForm.kids"></ion-input>
+    </ion-item>
+
+
+    <ion-item-divider>Dates</ion-item-divider>
+
+    <ion-item>
+      <ion-label>Checkin Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" min="{{this.today}}" max="2020-12-31" [(ngModel)]="checkinForm.timeStart"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Check-out Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" min="{{this.tomorrow}}" max="2020-12-31" [(ngModel)]="checkinForm.timeEnds"></ion-datetime>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button full (click)="saveChecin(checkinForm)">Save Checkin</button>
+  </div>
+
+  <div padding>
+    <button ion-button full (click)="TestAlert()">Alert</button>
+  </div>
+
+  <div padding>
+    <button ion-button full (click)="TestNotification()">Test Plugin Notification</button>
+  </div>
+
+</ion-content>
